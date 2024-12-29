@@ -54,12 +54,7 @@
    JWT_SECRET=your_jwt_secret
    PORT=3001
    ```
-
-4. 初始化数据库
-   ```bash
-   npm run init-db
-   ```
-5. 启动开发服务器
+4. 启动开发服务器
    ```bash
    npm run dev
    ```
