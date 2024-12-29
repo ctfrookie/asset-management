@@ -1,7 +1,11 @@
 import axios from "axios";
 
 const request = axios.create({
-  baseURL: "http://localhost:3001/api",
+  baseURL: "/api", // 使用相对路径
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
 });
 
 // 请求拦截器
@@ -17,7 +21,7 @@ request.interceptors.request.use((config) => {
 request.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    if (error.response.status === 401) {
+    if (error.response?.status === 401) {
       localStorage.removeItem("token");
       window.location.href = "/login";
     }

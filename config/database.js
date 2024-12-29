@@ -8,12 +8,12 @@ let pool = null;
 const initDatabase = async () => {
   let initialPool = null;
   try {
-    // 首先创建一个没有指定数据库的连接
+    // 使用服务名 mysql 作为主机名
     initialPool = mysql.createPool({
-      host: process.env.DB_HOST || "localhost",
-      port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 3306,
-      user: process.env.DB_USER || "root",
-      password: process.env.DB_PASSWORD || "",
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0,
